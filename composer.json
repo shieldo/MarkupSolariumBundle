@@ -1,0 +1,24 @@
+{
+    "name": "markup/solarium-bundle",
+    "description": "Provides integration with Symfony2 for versions 3+ of the Solarium solr client.",
+    "keywords": ["solr", "solarium", "search"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Markup",
+            "homepage": "http://usemarkup.com"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": "2.*",
+        "solarium/solarium": "~3.0.0"
+    },
+    "require-dev": {
+        "symfony/yaml": "2.*"
+    },
+    "autoload": {
+        "psr-0": { "Markup\\SolariumBundle": "" }
+    },
+    "target-dir": "Markup/SolariumBundle"
+}
