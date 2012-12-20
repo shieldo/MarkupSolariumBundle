@@ -23,7 +23,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('default_client')->cannotBeEmpty()->defaultValue('default')->end()
                 ->arrayNode('clients')
                     ->canBeUnset()
-                    ->useAttributeAsKey('name')
+                    ->useAttributeAsKey('key', false)
                     ->prototype('array')
                         ->addDefaultsIfNotSet()
                         ->children()

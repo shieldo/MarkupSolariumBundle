@@ -53,7 +53,9 @@ class MarkupSolariumExtension extends Extension
                 ->setArguments(array($name => $client_options));
 
             $adapter = new Reference($adapter_name);
-            $container->getDefinition($client_name)->addMethodCall('setAdapter', array($adapter));
+            $container->getDefinition($client_name)
+                ->addMethodCall('setAdapter', array($adapter))
+                ->addMethodCall('addEndpoint', array(array_merge($client_options, array('key' => $client_name))));
         }
     }
 }
