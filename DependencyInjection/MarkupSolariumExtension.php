@@ -41,7 +41,7 @@ class MarkupSolariumExtension extends Extension
                 $adapter_class = 'Solarium\Core\Client\Adapter\Curl';
             }
 
-            $clientDefinition = new Definition($client_class);
+            $clientDefinition = new Definition($client_class, array(array('endpoint' => array($client_name => $client_options))));
             $container->setDefinition($client_name, $clientDefinition);
 
             if ($name == $defaultClient) {
@@ -49,13 +49,11 @@ class MarkupSolariumExtension extends Extension
             }
 
             $container
-                ->setDefinition($adapter_name, new Definition($adapter_class))
-                ->setArguments(array($name => $client_options));
+                ->setDefinition($adapter_name, new Definition($adapter_class));
 
             $adapter = new Reference($adapter_name);
             $container->getDefinition($client_name)
-                ->addMethodCall('setAdapter', array($adapter))
-                ->addMethodCall('addEndpoint', array(array_merge($client_options, array('key' => $client_name))));
+                ->addMethodCall('setAdapter', array($adapter));
         }
     }
 }
