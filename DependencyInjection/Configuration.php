@@ -34,6 +34,8 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('path')->defaultValue('/solr')->end()
                             ->scalarNode('timeout')->defaultValue(5)->end()
                             ->scalarNode('core')->end()
+                            ->scalarNode('username')->end()
+                            ->scalarNode('password')->end()
                         ->end()
                     ->end()
                 ->end()
